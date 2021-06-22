@@ -13,7 +13,7 @@ const loadData = () => {
 
 <div class="scene scene--card">
   <div class="card">
-    <div class="card__face card__face--front">${deck.name}</div>
+    <div class="card__face card__face--front">${deck.category}</div>
     <div class="card__face card__face--back">back</div>
   </div>
 </div>
