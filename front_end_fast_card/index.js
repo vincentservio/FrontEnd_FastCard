@@ -5,26 +5,18 @@ const loadData = () => {
       debugger;
       decks.forEach((deck) => {
         const main = document.getElementById("main");
-        debugger;
-
-        main.innerHTML += `
-<h1>Card Flip with Text</h1>
-<h3>Hover over the image below:</h3>
-
-<div class="scene scene--card">
-  <div class="card">
-    <div class="card__face card__face--front">${deck.category}</div>
-    <div class="card__face card__face--back">back</div>
-  </div>
-</div>
- `;
-        var card = document.querySelector(".card");
-        card.addEventListener("click", function () {
-          card.classList.toggle("is-flipped");
-        });
+        let dk = new Deck(deck);
+        // attachClickToLinks()
+        main.innerHTML += dk.renderDeck();
       });
+
+      // var card = document.querySelector(".card");
+      // card.addEventListener("click", function () {
+      //   card.classList.toggle("is-flipped");
+      // });
     });
 };
+
 const chooseDeck = () => {
   const main = document.getElementById("main");
 
@@ -32,11 +24,11 @@ const chooseDeck = () => {
 <h1>Card Flip with Text</h1>
 <h3>Hover over the image below:</h3>
 
-<div class="scene scene--card">
+
   <div class="card">
     <div class="card__face card__face--front">front</div>
     <div class="card__face card__face--back">back</div>
-  </div>
+
 </div>
  `;
   var card = document.querySelector(".card");
@@ -44,5 +36,24 @@ const chooseDeck = () => {
     card.classList.toggle("is-flipped");
   });
 };
-chooseDeck();
+
+class Deck {
+  constructor(deck) {
+    this.id = deck.id;
+    this.category = deck.category;
+    Deck.decks << this;
+  }
+
+  renderDeck() {
+    return `
+    <div class="decks">
+        <div class="deck" data-id="${this.id}">${this.category}</a>
+    </div>
+    <br>
+    `;
+  }
+}
+
+Deck.decks = [];
+// chooseDeck();
 loadData();
