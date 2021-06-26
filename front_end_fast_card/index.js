@@ -1,4 +1,9 @@
-const loadData = () => {
+window.addEventListener("load", () => {
+  getDecks();
+});
+
+const getDecks = () => {
+  attachClickToDeck();
   fetch("http://localhost:3001/decks")
     .then((resp) => resp.json())
     .then((decks) => {
@@ -56,4 +61,4 @@ class Deck {
 
 Deck.decks = [];
 // chooseDeck();
-loadData();
+// loadData();
