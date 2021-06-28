@@ -3,7 +3,6 @@ window.addEventListener("load", () => {
 });
 
 const getDecks = () => {
-  attachClickToDeck();
   fetch("http://localhost:3001/decks")
     .then((resp) => resp.json())
     .then((decks) => {
@@ -12,9 +11,10 @@ const getDecks = () => {
         const main = document.getElementById("main");
         let dk = new Deck(deck);
         // attachClickToLinks()
+        debugger;
         main.innerHTML += dk.renderDeck();
       });
-
+      attachClickToDeck();
       // var card = document.querySelector(".card");
       // card.addEventListener("click", function () {
       //   card.classList.toggle("is-flipped");
