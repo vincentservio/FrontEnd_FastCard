@@ -1,9 +1,8 @@
 const attachClickToDeck = () => {
-  let cards = document.getElementsByClassName("deck");
-  debugger;
+  let cards = document.querySelectorAll("li a");
   cards.forEach((card) => {
     card.addEventListener("click", () => {
-      viewCard();
+      // debugger;
     });
   });
 };

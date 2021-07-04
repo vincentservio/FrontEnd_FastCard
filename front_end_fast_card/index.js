@@ -6,12 +6,12 @@ const getDecks = () => {
   fetch("http://localhost:3001/decks")
     .then((resp) => resp.json())
     .then((decks) => {
-      debugger;
+      // debugger;
       decks.forEach((deck) => {
         const main = document.getElementById("main");
         let dk = new Deck(deck);
         // attachClickToLinks()
-        debugger;
+        // debugger;
         main.innerHTML += dk.renderDeck();
       });
       attachClickToDeck();
@@ -51,9 +51,9 @@ class Deck {
 
   renderDeck() {
     return `
-    <div class="decks">
-        <div class="deck" data-id="${this.id}">${this.category}</a>
-    </div>
+       <li class="decks">
+        <a href="#" class="deck"data-id="${this.id}">${this.category}</a>
+    </li>
     <br>
     `;
   }
