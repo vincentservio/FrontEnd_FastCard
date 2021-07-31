@@ -34,7 +34,7 @@ const createDeck = () => {
     .then((resp) => resp.json())
     .then((deck) => {
       document.querySelector("#show-cards").innerHTML += `
-        <li>
+        <li>This is your Deck :
             <a href="#" data-id="${deck.id}">${deck.category}
         </li>
         `;
